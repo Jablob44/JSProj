@@ -5,9 +5,11 @@ In Bootleg F1, users will be able to:
 
 1) Move the car with WASD
 2) Race against their best time
-3) Penalized (adding seconds to the time if they break rules)
+3) Be penalized (adding seconds to the time if they break rules)
 4) Chose a car (maybe as simple as chosing the color, I am not sure yet)
 5) Interact with a main menu (and possibly a difficulty setting if I get to making the ai).
+6) Interact with a pause menu
+7) Interact with some kind of selection menu (for now just car color and a track)
 
 
 In addition, this project will include:
