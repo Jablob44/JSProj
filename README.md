@@ -15,13 +15,8 @@ In addition, this project will include:
 Instructions on how to play, a readme, and a wireframe.
 
 Wireframe:
-Each window:
 
-/Users/jacobnguyen/Desktop/Screen Shot 2022-06-16 at 9.20.08 PM.png
-/Users/jacobnguyen/Desktop/Screen Shot 2022-06-16 at 9.46.36 PM.png
-/Users/jacobnguyen/Desktop/Screen Shot 2022-06-16 at 9.24.50 PM.png
-/Users/jacobnguyen/Desktop/Screen Shot 2022-06-16 at 9.28.52 PM.png
-*See folder with images*
+*See the wireframe folder with images*
 
 Technologies, Libraries, APIs:
 
