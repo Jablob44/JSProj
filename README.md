@@ -1,5 +1,5 @@
-# The 100% Official Formula 1 game!
-The goal of this project is to make a simple, 2d, top-down formula one game that runs on a browser. The game will be built with JavaScript, HTML, and CSS. You will be able to drive an open wheel race car around a track and record your times. Each lap, you will race a ghost that represents your fastest time.
+# Bootleg Formula 1 game!
+The goal of this project is to make a simple, 2d, top-down racing game that runs on a browser. The game will be built with JavaScript, HTML, and CSS. You will be able to drive an open wheel race car around a track and record your times. Each lap, you will race a ghost that represents your fastest time. 
 
 In Bootleg F1, users will be able to:
 
@@ -7,9 +7,9 @@ In Bootleg F1, users will be able to:
 2) Race against their best time
 3) Be penalized (adding seconds to the time if they break rules)
 4) Chose a car (maybe as simple as chosing the color, I am not sure yet)
-5) Interact with a main menu (and possibly a difficulty setting if I get to making the ai).
+5) Interact with a main menu
 6) Interact with a pause menu
-7) Interact with some kind of selection menu (for now just car color and a track)
+7) Interact with a selection menu (for now just car color and a track)
 
 
 In addition, this project will include:
