@@ -9,6 +9,11 @@ class Car{
         // this.currentSpeed = 0;
         // this.canvas = document.getElementsByClassName("game-view");
         this.image = new Image();
+        // this.track = new component
+    }
+
+    getVel(){
+        return this.vel;
     }
 
     setImage(){
@@ -19,30 +24,20 @@ class Car{
 
     draw(ctx){
         this.setImage();
-        // ctx.fillStyle = this.color;
-        // ctx.beginPath();
-        ctx.drawImage(this.image, this.pos[0], this.pos[1]);
-        // ctx.arc(
-        //     this.pos[0],
-        //     this.pos[1],
-        //     7,
-        //     0,
-        //     2 * Math.PI,
-        //     false
-        // );
-        // ctx.fill();
+        let carImg = ctx.drawImage(this.image, this.pos[0], this.pos[1], 30, 60);
+        // ctx.rotate();
     }
 
     power(impulse) {
-        this.vel[0] += impulse[0];
-        this.vel[1] += impulse[1];
+        // if (this.vel[0] < 2){
+            this.vel[0] += impulse[0];
+            this.vel[1] += impulse[1];
+        // }
     }
 
     move(){
-        if (this.vel[0] < 1 && this.vel[1] < 1){
-            this.pos = [this.pos[0] + this.vel[0], this.pos[1] + this.vel[1]];
-            // this.canvas.style.translate(this.pos[0], this.pos[1]);
-        }
+        this.pos = [this.pos[0] + this.vel[0], this.pos[1] + this.vel[1]];
+        // this.canvas.style.translate(this.pos[0], this.pos[1]);
     }
 
     // moveBack(){

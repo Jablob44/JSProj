@@ -1,10 +1,23 @@
 
 .game-view{
     overflow: hidden;
-  }
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;  }
   
-  .track{
-    // background-image: url('https://commons.wikimedia.org/wiki/File:Circuit_Monaco_2003.svg');
-    background-size: 100%;
-    position: relative;
-  }
+.ordered-view{
+    display: flex;
+    flex-direction: row;
+}
+
+#side-bar{
+    width: auto;
+    height: auto;
+    background-color: darkgray;
+}
+//   .track{
+//     // background-image: url('https://commons.wikimedia.org/wiki/File:Circuit_Monaco_2003.svg');
+//     background-size: 100%;
+//     position: relative;
+//   }

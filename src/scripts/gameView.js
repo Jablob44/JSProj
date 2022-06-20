@@ -1,6 +1,6 @@
 // import * as car from "./car"
 class GameView{
-    constructor(car, game, ctx){
+    constructor(car, game, track, ctx){
         this.car = car;
         this.game = game;
         this.ctx = ctx;
@@ -10,16 +10,22 @@ class GameView{
             s: [0,1],
             d: [1,0]
         };
-        this.track = document.querySelector(".track");
+        this.track = track;
     }
 
     handleKeyBindings(){
         const car = this.car;
+        const track = this.track;
         const moves = this.moves;
 
         Object.keys(moves).forEach((i) => {
             const move = moves[i];
             key(i, () => {car.power(move)});
+        });
+
+        Object.keys(moves).forEach((i) => {
+            const move = moves[i];
+            key(i, () => {track.power(move)});
         });
 
 
