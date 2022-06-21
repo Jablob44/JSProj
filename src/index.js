@@ -5,8 +5,13 @@ import Game from "./scripts/game";
 import Track from "./scripts/track";
 
 window.addEventListener('DOMContentLoaded', (event) => {
+    // alert('DOM is fully loaded')
+    let canvas = document.getElementById("game-view");
+    canvas.height = window.innerHeight;
+    canvas.width = 500;
+    
     const newCar = new Car({
-        pos: [100,100],
+        pos: [canvas.width/2, canvas.height/2],
         vel: [1,0],
         color: "orange"
     });
@@ -16,12 +21,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         pos: [0,0],
         cars: [newCar]
     });
-    // alert('DOM is fully loaded')
-
     let game = new Game(trackObj, newCar);
-    let canvas = document.getElementById("game-view");
-    canvas.height = window.innerHeight;
-    canvas.width = 500;
     let context = canvas.getContext("2d");
     
     // game.addCar(newCar);

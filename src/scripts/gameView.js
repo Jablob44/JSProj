@@ -25,7 +25,14 @@ class GameView{
 
         Object.keys(moves).forEach((i) => {
             const move = moves[i];
-            key(i, () => {track.power(move)});
+            const deg = 1;
+            // console.log(i);
+            // if(i !== 'a' && i !== "d"){
+                key(i, () => {track.power(move)});
+            // }
+            // else{
+                // key(i, () => {track.turnPower(deg, this.ctx)})
+            // }
         });
 
 

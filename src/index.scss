@@ -1,14 +1,20 @@
-
+body{
+    display: flex;
+}
 .game-view{
     overflow: hidden;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    position: absolute;  }
+    position: absolute;  
+    // border: 10px solid red;
+}
   
 .ordered-view{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    size: 100%;
+    border: 1px solid red;
 }
 
 #side-bar{

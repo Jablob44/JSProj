@@ -1,3 +1,4 @@
+import Util from "./util";
 class Track{
     constructor(options){
         this.map = new Image();
@@ -15,10 +16,10 @@ class Track{
         }
     }
 
-    draw(ctx){
+    draw(ctx, deg){
         this.setMap();
-        let track = ctx.drawImage(this.map, this.pos[0], this.pos[1], 1000, 800);
-        // ctx.rotate(180)
+        let track = ctx.drawImage(this.map, this.pos[0], this.pos[1], 3000, 1500);
+        Util.rotateImg(ctx, this.map, this.pos[0], this.pos[1], 3000, 1500, 90);
     }
 
     power(impulse) {
@@ -26,6 +27,10 @@ class Track{
             this.vel[0] -= impulse[0];
             this.vel[1] -= impulse[1];
         // }
+    }
+
+    turnPower(deg, ctx){
+        Util.rotateImg(ctx, this.map, this.pos[0], this.pos[1], 3000, 1500, deg);
     }
 
     move(){

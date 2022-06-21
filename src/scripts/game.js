@@ -15,7 +15,7 @@ class Game{
 
     draw(ctx){
         ctx.clearRect(0, 0, this.DIM_X, this.DIM_Y);
-        this.track.draw(ctx);
+        this.track.draw(ctx, 90);
         this.cars.forEach((c) => {
             c.draw(ctx);
         });
