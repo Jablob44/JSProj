@@ -24,7 +24,7 @@ class Game{
     moveCars(){
         this.cars.forEach((c) => {
             this.track.move();
-            // c.move();
+            // c.move(); update
         })
     }
 }
