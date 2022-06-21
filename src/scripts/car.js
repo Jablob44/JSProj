@@ -24,7 +24,7 @@ class Car{
 
     draw(ctx){
         this.setImage();
-        let carImg = ctx.drawImage(this.image, this.pos[0], this.pos[1], 50, 100);
+        // let carImg = ctx.drawImage(this.image, this.pos[0], this.pos[1], 50, 100);
         Util.rotateImg(ctx, this.image, this.pos[0], this.pos[1], 50, 100, 180);
     }
 

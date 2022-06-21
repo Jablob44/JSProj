@@ -18,14 +18,18 @@ class Track{
 
     draw(ctx, deg){
         this.setMap();
-        let track = ctx.drawImage(this.map, this.pos[0], this.pos[1], 3000, 1500);
+        // let track = ctx.drawImage(this.map, this.pos[0], this.pos[1], 3000, 1500);
         Util.rotateImg(ctx, this.map, this.pos[0], this.pos[1], 3000, 1500, 90);
     }
 
     power(impulse) {
-        // if (this.vel[0] < 2){
-            this.vel[0] -= impulse[0];
-            this.vel[1] -= impulse[1];
+        this.vel[0] -= impulse[0];
+        this.vel[1] -= impulse[1];
+        // if (this.vel[0] >= 5){
+        //     this.vel[0] = 5;
+        // }
+        // else if(this.vel[1] >= 5){
+        //     this.vel[1] = 5;
         // }
     }
 
