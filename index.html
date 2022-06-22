@@ -13,23 +13,60 @@
   </head>
 
   <body>
-    <div class="ordered-view" id="side-bar">Use WASD to move!</div>
-    <!-- background-image: url('https://www.clipartmax.com/middle/m2i8N4d3m2K9N4i8_big-image-race-track/'); -->
-    <canvas class="ordered-view" id="game-view" style="background-color: grey;" height="600px" width="800px">
-        <!-- <img src="./assets/track.jpeg" size="100%"> -->
-        <!-- <div class="track">
-          <div class="car">
+    <div class="Main-menu" style="display: none;">
+      <h1>Bootleg F1</h1>
+      <button>Start Game</button>
+      <p>Links</p>
+    </div>
+    <div class="Selection-menu" style="display: none;">
+      <ul> Car Color:
+        <li><button>Red</button></li>
+        <li><button>Blue</button></li>
+        <li><button>Green</button></li>
+        <li><button>Orange</button></li>
+        <li><button>Yellow</button></li>
+      </ul>
+      <ul> Track:
+        <li><button>Test Track</button></li>
+      </ul>
+      <ul> Difficulty:
+        <li><button>F3: Low top speeds and no penalties</button></li>
+        <li><button>F2: Medium speeds with penalties</button></li>
+        <li><button>F1: High speeds with penalties</button></li>
+      </ul>
+    </div>
 
-          </div>
-        </div> -->
-    </canvas>
-    <div class="ordered-view" id="side-bar">00:00
-      <button>Pause</button>
-      <ol>
-        <li>1st time</li>
-        <li>2nd time</li>
-        <li>3rd time</li>
-      </ol>
+    <div class="pause-menu" style="display: none;">
+      <ul>
+        <li><button>Quit</button></li>
+        <li><button>Resume</button></li>
+        <li>Volume Bar</li>
+      </ul>
+    </div>
+    <div class="game">
+      <div class="ordered-view" id="side-bar-left">
+        <h1>Use WASD to move!</h1>
+        <h2>Track Map:</h2>
+        <img src="./assets/track.jpeg" class="track-map">
+      </div>
+      <!-- background-image: url('https://www.clipartmax.com/middle/m2i8N4d3m2K9N4i8_big-image-race-track/'); -->
+      <canvas class="ordered-view" id="game-view" style="background-color: grey;" height="600px" width="1000px">
+          <!-- <img src="./assets/track.jpeg" size="100%"> -->
+          <!-- <div class="track">
+            <div class="car">
+  
+            </div>
+          </div> -->
+      </canvas>
+      <div class="ordered-view" id="side-bar-right">
+        <h1 id="timer">0:0</h1>
+        <button class="pause-button">Pause</button>
+        <ol class="score"> Times:
+          <li>1st time</li>
+          <li>2nd time</li>
+          <li>3rd time</li>
+        </ol>
+      </div>
     </div>
       <!-- <h1>Content</h1> -->
   </body>

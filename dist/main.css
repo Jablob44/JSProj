@@ -1,7 +1,7 @@
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/
-body {
+.game {
   display: flex;
 }
 
@@ -20,8 +20,47 @@ body {
   border: 1px solid red;
 }
 
-#side-bar {
+#side-bar-left {
+  display: flex;
+  align-items: center;
   width: 100%;
   height: auto;
   background-color: darkgray;
+}
+
+#side-bar-right {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  background-color: darkgray;
+}
+
+#timer {
+  display: flex;
+  justify-content: center;
+}
+
+.score {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 25%;
+  padding-right: 25%;
+  padding-bottom: 95%;
+  border: solid red;
+}
+
+.pause-button {
+  display: flex;
+  justify-content: center;
+  background-color: red;
+  width: 50%;
+}
+
+.track-map {
+  margin-top: 20%;
+  margin-bottom: 80%;
+  width: 200px;
+  transform: rotate(90deg);
+  border: solid red;
 }

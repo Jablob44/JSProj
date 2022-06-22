@@ -14,8 +14,10 @@ class Game{
     }
 
     draw(ctx){
+        // console.log(theCar.getPos());
+        // let car = this.cars[0];
         ctx.clearRect(0, 0, this.DIM_X, this.DIM_Y);
-        this.track.draw(ctx, 90);
+        this.track.draw(ctx);
         this.cars.forEach((c) => {
             c.draw(ctx);
         });

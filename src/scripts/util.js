@@ -10,10 +10,35 @@ const Util = {
     rotateImg(ctx, img, x, y, width, height, deg){
       ctx.save();
       let rad = deg * Math.PI/180;
-      ctx.translate(x+width/2, y+height/2);
+      ctx.translate(x, y);
       ctx.rotate(rad);
       ctx.drawImage(img, width/2 * -1, height/2*-1, width, height);
       ctx.restore();
+    },
+    rotateImgTrack(ctx, img, x, y, width, height, carPos, deg){
+      ctx.save();
+      let distance = Util.dist([x,y], carPos);
+      let distanceToNewMid = distance*(Math.sin(deg/2))*2;
+
+      let rad = deg * Math.PI/180;
+      ctx.translate(x, y); // this does not change
+      ctx.rotate(rad);
+      ctx.drawImage(img, width/2*-1, height/2*-1, width, height); //this changes
+      ctx.restore();
+    },
+    timer(){
+      let sec = 1;
+      let min = 0;
+      const timerInt = setInterval(() => {
+        let timer = document.getElementById("timer");
+        timer.innerHTML=min+":"+sec;
+        if(sec === 59){
+          sec = 0;
+          min++;
+        }else{
+          sec++;
+        }
+      }, 1000)
     }
 }
 export default Util;

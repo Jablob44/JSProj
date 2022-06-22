@@ -5,21 +5,28 @@ class Track{
         this.name = options.name;
         this.pos = options.pos;
         this.cars = options.cars;
+        this.rotation = 90;
+        // console.log("new track")
         this.carVel = this.cars[0].getVel();
         this.vel = [this.carVel[0] * -1, this.carVel[1] * -1];
-        // this.canvas = document.getElementsByClassName("game-view");
     }
 
-    setMap(name){
+    setMap(name, ctx, carpos){
         if(name = "test"){
             this.map.src = "./assets/track.jpeg";
+            // console.log("set map");
         }
+        Util.rotateImgTrack(ctx, this.map, carpos[0], carpos[1], 4000, 2000, this.cars[0].getPos(), this.rotation);
     }
 
-    draw(ctx, deg){
-        this.setMap();
+    
+
+    draw(ctx){
+        // this.setMap();
         // let track = ctx.drawImage(this.map, this.pos[0], this.pos[1], 3000, 1500);
-        Util.rotateImg(ctx, this.map, this.pos[0], this.pos[1], 3000, 1500, 90);
+        // Util.rotateImg(ctx, this.map, carpos[0], carpos[1], 4000, 2000, this.rotation);
+        console.log(this.pos);
+        Util.rotateImgTrack(ctx, this.map, this.pos[0], this.pos[1], 4000, 2000, this.cars[0].getPos(), this.rotation);
     }
 
     power(impulse) {
@@ -33,8 +40,9 @@ class Track{
         // }
     }
 
-    turnPower(deg, ctx){
-        Util.rotateImg(ctx, this.map, this.pos[0], this.pos[1], 3000, 1500, deg);
+    turnPower(deg){ //ctx
+        this.rotation += deg;
+        // Util.rotateImg(ctx, this.map, this.pos[0], this.pos[1], 8000, 4000, deg);
     }
 
     move(){
