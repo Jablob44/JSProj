@@ -1,16 +1,13 @@
-# Bootleg Formula 1 game!
-The goal of this project is to make a simple, 2d, top-down racing game that runs on a browser. The game will be built with JavaScript, HTML, and CSS. You will be able to drive an open wheel race car around a track and record your times. Each lap, you will race a ghost that represents your fastest time. 
+# Mini Hill Climb!
+The goal of this project is to make a simple, 2d, top-down racing game that runs on a browser. You will be able to drive an open wheel race car up a short track and record your times. The game was built with JavaScript, HTML, and CSS. The game view is a canvas element that is being redrawn on each frame. 
 
-In Bootleg F1, users will be able to:
+In Mini Hill Climb, users will be able to:
 
 1) Move the car with WASD
 2) Race against their best time
-3) Be penalized (adding seconds to the time if they break rules)
-4) Chose a car (maybe as simple as chosing the color, I am not sure yet)
-5) Interact with a main menu
-6) Interact with a pause menu
-7) Interact with a selection menu (for now just car color and a track)
-
+4) Interact with a main menu
+5) Interact with a pause menu
+6) Interact with an "end-of-lap" menu.
 
 In addition, this project will include:
 
@@ -23,6 +20,16 @@ Wireframe:
 Technologies, Libraries, APIs:
 
 The project will be built with HTML, CSS, and JavaScript. I plan on using the Canvas API, Webpack and the DOM to create the gameplay.
+
+How to play:
+
+Use W to move forward
+Use S to slow down/reverse
+Use A to turn left
+Use D to turn right
+
+When you push any button on your keyboard, the game will start. Once you cross the finish line, your time will be recorded.
+
 
 Implementation Timeline:
 Friday Afternoon & Weekend:

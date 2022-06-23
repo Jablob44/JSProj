@@ -7,6 +7,17 @@ class GamePlay{
     constructor(){
         this.times = [];
     }
+
+    mainMenu(){
+        let mainMenu = document.getElementById("Main-menu");
+        let gameView = document.getElementById("game");
+        let startButton = document.getElementById("start-button");
+        startButton.addEventListener('click', () => {
+            mainMenu.style.display = "none";
+            gameView.style.display = "flex";
+            this.gp()
+        })
+    }
     
     gp(){
         let lapOver = false;

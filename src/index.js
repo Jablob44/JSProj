@@ -24,8 +24,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     //}
     // console.log("new car")
     let gamePlay = new GamePlay();
-    gamePlay.gp();
-    gamePlay.updateBoard();
+    gamePlay.mainMenu();
+    // gamePlay.updateBoard();
    
 
 })
