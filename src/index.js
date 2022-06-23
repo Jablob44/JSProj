@@ -4,7 +4,8 @@ import GameView from "./scripts/gameView";
 import Game from "./scripts/game";
 import Track from "./scripts/track";
 import Util from "./scripts/util";
-import gamePlay from "./scripts/gameplay"
+// import gamePlay from "./scripts/gameplay"
+import GamePlay from "./scripts/gameplay";
 window.addEventListener('DOMContentLoaded', (event) => {
     // alert('DOM is fully loaded')
 
@@ -21,7 +22,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
             //}
         //}
     //}
+    // console.log("new car")
+    let gamePlay = new GamePlay();
     gamePlay.gp();
+    gamePlay.updateBoard();
+   
 
 })
 // console.log("working")

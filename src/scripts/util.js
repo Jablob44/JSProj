@@ -25,20 +25,7 @@ const Util = {
       ctx.rotate(rad);
       ctx.drawImage(img, width/2*-1, height/2*-1, width, height); //this changes
       ctx.restore();
-    },
-    timer(){
-      let sec = 1;
-      let min = 0;
-      const timerInt = setInterval(() => {
-        let timer = document.getElementById("timer");
-        timer.innerHTML=min+":"+sec;
-        if(sec === 59){
-          sec = 0;
-          min++;
-        }else{
-          sec++;
-        }
-      }, 1000)
     }
+    
 }
 export default Util;

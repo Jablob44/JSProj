@@ -47,7 +47,7 @@
       <div class="ordered-view" id="side-bar-left">
         <h1>Use WASD to move!</h1>
         <h2>Track Map:</h2>
-        <img src="./assets/track.jpeg" class="track-map">
+        <img src="./assets/TrackGrass.png" class="track-map" style="">
       </div>
       <!-- background-image: url('https://www.clipartmax.com/middle/m2i8N4d3m2K9N4i8_big-image-race-track/'); -->
       <canvas class="ordered-view" id="game-view" style="background-color: grey;" height="600px" width="1000px">
@@ -58,13 +58,16 @@
             </div>
           </div> -->
       </canvas>
+      <div id="end-of-lap" style="display: none;">
+        <h1>Lap Complete!</h1>
+        <button id="new-lap-button">New Lap</button>
+        <button id="quit-button">Quit</button>
+      </div>
       <div class="ordered-view" id="side-bar-right">
-        <h1 id="timer">0:0</h1>
+        <h1 id="timer">0:00</h1>
         <button class="pause-button">Pause</button>
-        <ol class="score"> Times:
-          <li>1st time</li>
-          <li>2nd time</li>
-          <li>3rd time</li>
+        <ol id="score-board"> Times:
+          
         </ol>
       </div>
     </div>

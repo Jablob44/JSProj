@@ -9,11 +9,26 @@ class Car{
         // this.currentSpeed = 0;
         // this.canvas = document.getElementsByClassName("game-view");
         this.image = new Image();
-        this.roatation = 180;
-        // this.acc = new Audio();
-        // this.idle = new Audio();
-        // this.dec = new Audio();
+        this.rotation = 180;
+        this.acc = new Audio();
+        this.idle = new Audio();
+        this.dec = new Audio();
         // this.track = new component
+    }
+
+    playAcc(){
+        this.acc.src = "./assets/2004acc.mp3"
+        this.acc.play();
+    }
+
+    playDown(){
+        this.dec.src = "./assets/otherdown2004.mp3"
+        this.dec.play();
+    }
+
+    playIdle(){
+        this.idle.src = "./assets/idle2004.mp3"
+        this.idle.play();
     }
 
     getVel(){
@@ -28,19 +43,23 @@ class Car{
         return this.image;
     }
 
-    turn(move, ctx){
+    turn(move, deg){
+        // currentRot = this.rotation
         if (move === "a"){
             console.log("tunring left");
-            this.rotation -= 10;
+            this.rotation = this.rotation - deg;
+            console.log(this.roatation);
             // this.draw(ctx);
         }else if(move === "d"){
             console.log("tunring right");
-            this.rotation += 10;
-            // this.draw(ctx);
-        }else if(move === "w"){
-            this.rotation = 180;
+            this.rotation = this.rotation + deg;
+            console.log(this.roatation);
             // this.draw(ctx);
         }
+        // else if(move === "w"){
+        //     this.rotation = 180;
+        //     // this.draw(ctx);
+        // }
     }
 
     setImage(){
@@ -51,8 +70,9 @@ class Car{
 
     draw(ctx){
         this.setImage();
+        console.log(this.roatation);
         // let carImg = ctx.drawImage(this.image, this.pos[0], this.pos[1], 50, 100);
-        Util.rotateImg(ctx, this.image, this.pos[0], this.pos[1], 50, 100, this.roatation);
+        Util.rotateImg(ctx, this.image, this.pos[0], this.pos[1], 50, 100, this.rotation);
     }
 
     power(impulse) {

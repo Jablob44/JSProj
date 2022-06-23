@@ -3,6 +3,7 @@
   \*************************************************************************************************************************************/
 .game {
   display: flex;
+  position: relative;
 }
 
 .game-view {
@@ -41,7 +42,7 @@
   justify-content: center;
 }
 
-.score {
+#score-board {
   margin-left: auto;
   margin-right: auto;
   padding-left: 25%;
@@ -58,9 +59,19 @@
 }
 
 .track-map {
-  margin-top: 20%;
-  margin-bottom: 80%;
+  margin-top: 30%;
+  margin-bottom: 70%;
   width: 200px;
-  transform: rotate(90deg);
+  transform: rotate(-90deg);
   border: solid red;
+}
+
+#end-of-lap {
+  display: flex;
+  text-align: center;
+  padding: 40px;
+  position: absolute;
+  border-radius: 5px;
+  background-color: darkred;
+  opacity: 0.8;
 }
