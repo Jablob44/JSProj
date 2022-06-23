@@ -46,7 +46,7 @@ class Track{
         // this.setMap();
         // let track = ctx.drawImage(this.map, this.pos[0], this.pos[1], 3000, 1500);
         // Util.rotateImg(ctx, this.map, carpos[0], carpos[1], 4000, 2000, this.rotation);
-        console.log(this.pos);
+        // console.log(this.pos);
         Util.rotateImgTrack(ctx, this.map, this.pos[0], this.pos[1], 9000, 2000, this.cars[0].getPos(), this.rotation);
     }
 

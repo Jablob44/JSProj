@@ -25,7 +25,7 @@ class GamePlay{
         canvas.height = window.innerHeight;
         canvas.width = 700;
     
-        const newCar = new Car({
+        let newCar = new Car({
             pos: [canvas.width/2-25, canvas.height/2+200],
             vel: [0,0],
             color: "orange"
@@ -44,9 +44,15 @@ class GamePlay{
         
         // game.addCar(newCar);
         // newCar.draw(context);
-        new GameView(newCar, game, trackObj, context).start(lapOver);
+        let gameView = new GameView(newCar, game, trackObj, context)
+        gameView.start(lapOver);
         let lastTime;
+        let pauseButton = document.getElementById("pause-button");
+        pauseButton.addEventListener('click', () => {
+            this.onPause(trackObj, newCar);
+        })
         document.addEventListener('keypress', (event) => {
+            // console.log("--------------------------");
             let sec = 0;
             let tens = 0;
             let ten = 0
@@ -54,7 +60,7 @@ class GamePlay{
             const timerInt = setInterval(() => {
                 let timer = document.getElementById("timer");
                 sec++;
-                console.log(tens+sec);
+                // console.log(tens+sec);
                 if(sec === 10){
                     sec = 0;
                     tens++;
@@ -67,16 +73,17 @@ class GamePlay{
                     ten = 0
                 }
                 timer.innerHTML=min+":"+tens+sec;
-                console.log("current pos:", trackObj.getPos())
+                // console.log("current pos:", trackObj.getPos())
                 if (trackObj.getPos()[1] >= 3857 && lapOver === false){
                     lapOver = true;
                     lastTime = min+":"+tens+sec;
                     this.times.push(lastTime);
-                    console.log("the current value representing the time!!!!!!!:", lastTime);
+                    // console.log("the current value representing the time!!!!!!!:", lastTime);
                     this.updateBoard();
 
                     clearInterval(timerInt);
-                    this.endOfLap(trackObj, canvas);
+
+                    this.endOfLap(trackObj, gameView);
                     return null;
                 }
             }, 1000);
@@ -96,18 +103,48 @@ class GamePlay{
         });
     }
 
-    endOfLap(track, canvas){
+    endOfLap(track, gameView){
         let endOfLap = document.getElementById("end-of-lap");
         let newLapButton = document.getElementById("new-lap-button");
         endOfLap.style.display = "block";
         track.setFullVelocity([0,0]);
         newLapButton.addEventListener('click', () => {
-            // canvas.clearRect(0, 0, canvas.width, canvas.height);
+            // context.clearRect(0, 0, canvas.width, canvas.height);
+            endOfLap.style.display = "none";
+            gameView.start(true)
             this.gp();
         });
     }
 
-    restartLap(){
+    onPause(track, car){
+            let pauseMenu = document.getElementById("pause-menu");
+            let muted = false;
+            pauseMenu.style.display = "block";
+            let pausedVel = track.getVel();
+            track.setFullVelocity([0,0]);
+            let resume = document.getElementById("resume-button");
+            let mute = document.getElementById("mute-button");
+            let unmute = document.getElementById("unmute-button");
+            resume.addEventListener('click', () => {
+                pauseMenu.style.display = "none";
+                track.setFullVelocity(pausedVel);
+            });
+            mute.addEventListener('click', () => {
+                car.mute();
+                mute.style.display = "none";
+                unmute.style.display = "block";
+                muted = true;
+            });
+            if (muted){
+                unmute.addEventListener('click', () => {
+                    car.unmute();
+                    mute.style.display = "block";
+                    unmute.style.display = "none"
+                    muted = false;
+                });
+            }
+
+
 
     }
 }

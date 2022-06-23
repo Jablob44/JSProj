@@ -41,13 +41,13 @@
 #score-board{
     margin-left: auto;
     margin-right: auto;
-    padding-left: 25%;
-    padding-right: 25%;
+    padding-left: 50PX;
+    padding-right: 50PX;
     padding-bottom: 95%;
     border: solid red;
 }
 
-.pause-button{
+#pause-button{
     display: flex;
     justify-content: center;
     background-color: red;
@@ -65,6 +65,7 @@
 #end-of-lap{
     display: flex;
     text-align: center;
+    margin: auto;
     // margin-left: 50%;
     // margin-right: 50%;
     // margin-top: 50%;
@@ -74,6 +75,45 @@
     border-radius: 5px;
     background-color: darkred;
     opacity: .8;
+}
+
+#pause-menu{
+    display: flex;
+    text-align: center;
+    margin: auto;
+    color: white;
+    // margin-left: 50%;
+    // margin-right: 50%;
+    // margin-top: 50%;
+    padding: 40px;
+    z-index: 99999;
+    // z-index: 1;
+    position: absolute;
+    border-radius: 5px;
+    background-color: darkred;
+    opacity: .8;
+}
+
+#Main-menu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title{
+    font-family: 'Merriweather', serif;
+    color: firebrick;
+}
+
+#start-button{
+    background-color: darkred;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+}
+
+#linkedin{
+    height: 10px;
 }
 //   .track{
 //     // background-image: url('https://commons.wikimedia.org/wiki/File:Circuit_Monaco_2003.svg');

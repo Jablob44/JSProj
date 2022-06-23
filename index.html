@@ -14,9 +14,10 @@
 
   <body>
     <div id="Main-menu">
-      <h1>Mini Hill Climb</h1>
+      <h1 class="title">Mini Hill Climb</h1>
       <button id="start-button">Start Game</button>
-      <p>Links</p>
+      <p>Links:</p>
+      <a href="https://www.linkedin.com/in/tuesday-ai/" id="linkedin"><img src="./assets/Linkedin_symbol_transparent.png" style="width: 40px;"></a>
     </div>
     <div class="Selection-menu" style="display: none;">
       <ul> Car Color:
@@ -36,42 +37,42 @@
       </ul>
     </div>
 
-    <div class="pause-menu" style="display: none;">
-      <ul>
-        <li><button>Quit</button></li>
-        <li><button>Resume</button></li>
-        <li>Volume Bar</li>
-      </ul>
-    </div>
-    <div id="game" style="display: none;">
-      <div class="ordered-view" id="side-bar-left">
-        <h1>Use WASD to move!</h1>
-        <h2>Track Map:</h2>
-        <img src="./assets/TrackGrass.png" class="track-map" style="">
+    <div id="pause-menu" style="display: none;">
+        <button class="quit-button">Quit</button>
+        <button id="resume-button">Resume</button>
       </div>
-      <!-- background-image: url('https://www.clipartmax.com/middle/m2i8N4d3m2K9N4i8_big-image-race-track/'); -->
-      <canvas class="ordered-view" id="game-view" style="background-color: grey;" height="600px" width="1000px">
+      <div id="game" style="display: none;">
+        <div class="ordered-view" id="side-bar-left">
+          <h1>Use WASD to move!</h1>
+          <h2>Track Map:</h2>
+          <img src="./assets/TrackGrass.png" class="track-map" style="">
+        </div>
+        <!-- background-image: url('https://www.clipartmax.com/middle/m2i8N4d3m2K9N4i8_big-image-race-track/'); -->
+        <canvas class="ordered-view" id="game-view" style="background-color: grey;" height="600px" width="1000px">
           <!-- <img src="./assets/track.jpeg" size="100%"> -->
           <!-- <div class="track">
             <div class="car">
-  
+              
             </div>
           </div> -->
-      </canvas>
-      <div id="end-of-lap" style="display: none;">
-        <h1>Lap Complete!</h1>
-        <button id="new-lap-button">New Lap</button>
-        <button id="quit-button">Quit</button>
+        </canvas>
+        <div id="end-of-lap" style="display: none;">
+          <h1>Lap Complete!</h1>
+          <button id="new-lap-button">New Lap</button>
+          <button class="quit-button">Quit</button>
+        </div>
+        <div class="ordered-view" id="side-bar-right">
+          <h1 id="timer">0:00</h1>
+          <button id="pause-button">Pause</button>
+          <h2>Times:</h2>
+          <ol id="score-board">
+            
+          </ol>
+          <button id="mute-button">Mute</button>
+          <button id="unmute-button" style="display: none;">Unmute</button>
+        </div>
       </div>
-      <div class="ordered-view" id="side-bar-right">
-        <h1 id="timer">0:00</h1>
-        <button class="pause-button">Pause</button>
-        <ol id="score-board"> Times:
-          
-        </ol>
-      </div>
-    </div>
       <!-- <h1>Content</h1> -->
-  </body>
-
-</html>
+    </body>
+    
+    </html>

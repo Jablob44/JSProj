@@ -13,22 +13,46 @@ class Car{
         this.acc = new Audio();
         this.idle = new Audio();
         this.dec = new Audio();
+        this.acc.src = "./assets/2004acc.mp3";
+        this.dec.src = "./assets/otherdown2004.mp3";
+        this.idle.src = "./assets/idle2004.mp3";
         // this.track = new component
     }
 
+    mute(){
+        this.acc.volume = 0;
+        this.dec.volume = 0;
+        this.idle.volume = 0;
+    }
+
+    unmute(){
+        this.acc.src = volume = 1;
+        this.dec.src = volume = 1;
+        this.idle.src = volume = 1;
+    }
+
     playAcc(){
-        this.acc.src = "./assets/2004acc.mp3"
         this.acc.play();
     }
 
-    playDown(){
-        this.dec.src = "./assets/otherdown2004.mp3"
+    playDec(){
         this.dec.play();
     }
 
     playIdle(){
-        this.idle.src = "./assets/idle2004.mp3"
         this.idle.play();
+    }
+
+    pauseAcc(){
+        this.acc.pause();
+    }
+
+    pauseDec(){
+        this.dec.pause();
+    }
+
+    pauseIdle(){
+        this.idle.pause();
     }
 
     getVel(){
@@ -46,14 +70,14 @@ class Car{
     turn(move, deg){
         // currentRot = this.rotation
         if (move === "a"){
-            console.log("tunring left");
+            // console.log("tunring left");
             this.rotation = this.rotation - deg;
-            console.log(this.roatation);
+            // console.log(this.roatation);
             // this.draw(ctx);
         }else if(move === "d"){
-            console.log("tunring right");
+            // console.log("tunring right");
             this.rotation = this.rotation + deg;
-            console.log(this.roatation);
+            // console.log(this.roatation);
             // this.draw(ctx);
         }
         // else if(move === "w"){
@@ -70,7 +94,7 @@ class Car{
 
     draw(ctx){
         this.setImage();
-        console.log(this.roatation);
+        // console.log(this.roatation);
         // let carImg = ctx.drawImage(this.image, this.pos[0], this.pos[1], 50, 100);
         Util.rotateImg(ctx, this.image, this.pos[0], this.pos[1], 50, 100, this.rotation);
     }

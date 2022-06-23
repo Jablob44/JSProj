@@ -45,13 +45,13 @@
 #score-board {
   margin-left: auto;
   margin-right: auto;
-  padding-left: 25%;
-  padding-right: 25%;
+  padding-left: 50PX;
+  padding-right: 50PX;
   padding-bottom: 95%;
   border: solid red;
 }
 
-.pause-button {
+#pause-button {
   display: flex;
   justify-content: center;
   background-color: red;
@@ -69,9 +69,45 @@
 #end-of-lap {
   display: flex;
   text-align: center;
+  margin: auto;
   padding: 40px;
   position: absolute;
   border-radius: 5px;
   background-color: darkred;
   opacity: 0.8;
+}
+
+#pause-menu {
+  display: flex;
+  text-align: center;
+  margin: auto;
+  color: white;
+  padding: 40px;
+  z-index: 99999;
+  position: absolute;
+  border-radius: 5px;
+  background-color: darkred;
+  opacity: 0.8;
+}
+
+#Main-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-family: "Merriweather", serif;
+  color: firebrick;
+}
+
+#start-button {
+  background-color: darkred;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+}
+
+#linkedin {
+  height: 10px;
 }

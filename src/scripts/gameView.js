@@ -31,15 +31,27 @@ class GameView{
         Object.keys(moves).forEach((i) => {
             const move = moves[i];
             const deg = 10;
-            console.log(i);
+            // console.log(i);
             if(i === 'w' || i === 's'){
                 key(i, () => {
                     this.track.power(move);
+                    if (i === 'w'){
+                        car.playAcc();
+                        car.pauseDec();
+                        car.pauseIdle();
+                    }else{
+                        car.playDec();
+                        car.pauseAcc();
+                        car.pauseIdle();
+                    }
                 });
                 // console.log("in if")
             }
             else{
                key(i, () => {
+                    car.playIdle();
+                    car.pauseAcc();
+                    car.pauseDec();
                     // this.track.turnPower(move, this.ctx);
                     // let carVel = this.track.getVel();
                     if (this.track.getVel()[1] > 0){
@@ -62,6 +74,7 @@ class GameView{
                     // this.track.power(slow);
                     // Util.rotateImg()
                     // Util.rotateImg(ctx, this.car.getImage(), this.car.getPos()[0], this.car.getPos()[1], 50, 100, 180);
+
                 })
             //     console.log("turn power", move)
             }
@@ -77,7 +90,9 @@ class GameView{
         }
         let theCar = this.car
         this.track.setMap("test", this.ctx, theCar);
+        
         let gamepl = setInterval(() => {
+            console.log(endOfLap);
             if (this.track.getVel()[1] > 15){
                 this.track.setVel(15);
             }
@@ -86,6 +101,7 @@ class GameView{
                 this.game.draw(this.ctx);
             }
             else{
+                console.log("the gamepl:", gamepl);
                 clearInterval(gamepl);
             }
             // if (this.track.getPos()[1] >= 4078){
