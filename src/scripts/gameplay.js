@@ -5,7 +5,29 @@ import Track from "./track";
 import Util from "./util";
 class GamePlay{
     constructor(){
+        this.lapOver = false;
         this.times = [];
+        this.canvas = document.getElementById("game-view");
+        this.canvas.height = window.innerHeight;
+        this.canvas.width = 700;
+        this.car = new Car({
+            pos: [this.canvas.width/2-25, this.canvas.height/2+200],
+            vel: [0,0],
+            color: "orange"
+        });
+        this.track = new Track({
+            name: "hillclinb",
+            //name: "test",
+            // pos: [canvas.width/2-25, canvas.height/2],
+            pos: [153, -3488],
+            //finish line: 3878
+            cars: [this.car]
+        });
+        this.game = new Game(this.track, this.car);
+        this.context = this.canvas.getContext("2d");
+        this.gameView = new GameView(this.car, this.game, this.track, this.context)
+        this.gameView.start(this.lapOver);
+
     }
 
     mainMenu(){
@@ -20,37 +42,42 @@ class GamePlay{
     }
     
     gp(){
-        let lapOver = false;
-        let canvas = document.getElementById("game-view");
-        canvas.height = window.innerHeight;
-        canvas.width = 700;
-    
-        let newCar = new Car({
-            pos: [canvas.width/2-25, canvas.height/2+200],
-            vel: [0,0],
-            color: "orange"
-        });
+        this.timer(this.lapOver);
+        // this.times = new set(times)
+        // let currentTime = 0;
+        this.car.pos = [this.canvas.width/2-25, this.canvas.height/2+200];
+        this.car.vel = [0,0];
+        this.car.rotation = 180;
+        this.track.vel = [0,0];
+        this.track.pos = [153, -3488];
+        this.track.carVel = this.car.getVel();
+        this.track.vel = [this.track.carVel[0] * -1, this.track.carVel[1] * -1];
+        // let newCar = new Car({
+        //     pos: [canvas.width/2-25, canvas.height/2+200],
+        //     vel: [0,0],
+        //     color: "orange"
+        // });
 
-        let trackObj = new Track({
-            name: "hillclinb",
-            //name: "test",
-            // pos: [canvas.width/2-25, canvas.height/2],
-            pos: [153, -3488],
-            //finish line: 3878
-            cars: [newCar]
-        });
-        let game = new Game(trackObj, newCar);
-        let context = canvas.getContext("2d");
+        // let trackObj = new Track({
+        //     name: "hillclinb",
+        //     //name: "test",
+        //     // pos: [canvas.width/2-25, canvas.height/2],
+        //     pos: [153, -3488],
+        //     //finish line: 3878
+        //     cars: [newCar]
+        // });
         
         // game.addCar(newCar);
         // newCar.draw(context);
-        let gameView = new GameView(newCar, game, trackObj, context)
-        gameView.start(lapOver);
-        let lastTime;
         let pauseButton = document.getElementById("pause-button");
         pauseButton.addEventListener('click', () => {
-            this.onPause(trackObj, newCar);
+            this.onPause(this.track, this.car);
         })
+        
+    }
+    
+    timer(lapOver){
+        // let lastTime;
         document.addEventListener('keypress', (event) => {
             // console.log("--------------------------");
             let sec = 0;
@@ -74,17 +101,16 @@ class GamePlay{
                 }
                 timer.innerHTML=min+":"+tens+sec;
                 // console.log("current pos:", trackObj.getPos())
-                if (trackObj.getPos()[1] >= 3857 && lapOver === false){
+                if (this.track.getPos()[1] >= 3857 && lapOver === false){
                     lapOver = true;
-                    lastTime = min+":"+tens+sec;
-                    this.times.push(lastTime);
+                    this.times.push(min+":"+tens+sec);
                     // console.log("the current value representing the time!!!!!!!:", lastTime);
                     this.updateBoard();
 
                     clearInterval(timerInt);
 
-                    this.endOfLap(trackObj, gameView);
-                    return null;
+                    this.endOfLap(this.track, this.gameView);
+                    // return null;
                 }
             }, 1000);
         }, {once: true});
@@ -92,6 +118,7 @@ class GamePlay{
 
     updateBoard(){
         let scoreBoard = document.getElementById("score-board");
+        this.uniqueTimes();
         console.log("the times:", this.times)
         let allTimes = this.times.sort();
         scoreBoard.innerHTML='';
@@ -116,6 +143,13 @@ class GamePlay{
         });
     }
 
+    uniqueTimes(){
+        let uniqueTimes = this.times.filter((t, index) => {
+            return this.times.indexOf(t) === index;
+        });
+        this.times = uniqueTimes;
+    }
+
     onPause(track, car){
             let pauseMenu = document.getElementById("pause-menu");
             let muted = false;
@@ -129,17 +163,18 @@ class GamePlay{
                 pauseMenu.style.display = "none";
                 track.setFullVelocity(pausedVel);
             });
-            mute.addEventListener('click', () => {
-                car.mute();
-                mute.style.display = "none";
-                unmute.style.display = "block";
-                muted = true;
-            });
-            if (muted){
+            if(!muted){
+                mute.addEventListener('click', () => {
+                    car.mute();
+                    mute.style.display = "none";
+                    unmute.style.display = "block";
+                    muted = true;
+                });
+            }else{
                 unmute.addEventListener('click', () => {
                     car.unmute();
                     mute.style.display = "block";
-                    unmute.style.display = "none"
+                    unmute.style.display = "none";
                     muted = false;
                 });
             }

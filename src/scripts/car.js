@@ -26,9 +26,9 @@ class Car{
     }
 
     unmute(){
-        this.acc.src = volume = 1;
-        this.dec.src = volume = 1;
-        this.idle.src = volume = 1;
+        this.accvolume = 1;
+        this.dec.volume = 1;
+        this.idle.volume = 1;
     }
 
     playAcc(){

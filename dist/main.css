@@ -67,10 +67,13 @@
 }
 
 #end-of-lap {
-  display: flex;
+  display: block;
   text-align: center;
-  margin: auto;
+  color: white;
+  margin-left: 43%;
+  margin-right: 57%;
   padding: 40px;
+  z-index: 99999;
   position: absolute;
   border-radius: 5px;
   background-color: darkred;
@@ -78,10 +81,11 @@
 }
 
 #pause-menu {
-  display: flex;
+  display: block;
   text-align: center;
-  margin: auto;
   color: white;
+  margin-left: 43%;
+  margin-right: 57%;
   padding: 40px;
   z-index: 99999;
   position: absolute;
@@ -92,6 +96,7 @@
 
 #Main-menu {
   display: flex;
+  margin-top: 10%;
   flex-direction: column;
   align-items: center;
 }

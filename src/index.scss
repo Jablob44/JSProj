@@ -63,13 +63,15 @@
 }
 
 #end-of-lap{
-    display: flex;
+    display: block;
     text-align: center;
-    margin: auto;
-    // margin-left: 50%;
-    // margin-right: 50%;
+    // margin: auto;
+    color: white;
+    margin-left: 43%;
+    margin-right: 57%;
     // margin-top: 50%;
     padding: 40px;
+    z-index: 99999;
     // z-index: 1;
     position: absolute;
     border-radius: 5px;
@@ -78,12 +80,12 @@
 }
 
 #pause-menu{
-    display: flex;
+    display: block;
     text-align: center;
-    margin: auto;
+    // margin: auto;
     color: white;
-    // margin-left: 50%;
-    // margin-right: 50%;
+    margin-left: 43%;
+    margin-right: 57%;
     // margin-top: 50%;
     padding: 40px;
     z-index: 99999;
@@ -96,6 +98,7 @@
 
 #Main-menu{
     display: flex;
+    margin-top: 10%;
     flex-direction: column;
     align-items: center;
 }
