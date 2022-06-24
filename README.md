@@ -1,6 +1,8 @@
 # Mini Hill Climb!
 The goal of this project is to make a simple, 2d, top-down racing game that runs on a browser. You will be able to drive an open wheel race car up a short track and record your times. The game was built with JavaScript, HTML, and CSS. The game view is a canvas element that is being redrawn on each frame. 
 
+live link: https://jablob44.github.io/JSProj/
+
 In Mini Hill Climb, users will be able to:
 
 1) Move the car with WASD
