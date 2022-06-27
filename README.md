@@ -35,7 +35,7 @@ When you push any button on your keyboard, the game will start. Once you cross t
 
 Future features:
 
-- Fully functioning pause menu (with an unmute capability)
+- Fully functioning pause menu (with a better unmute capability)
 - The ability to return to the main menu
 - General polishes to the game.
 
