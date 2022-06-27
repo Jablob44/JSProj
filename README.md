@@ -22,16 +22,22 @@ Wireframe:
 Technologies, Libraries, APIs:
 
 The project will be built with HTML, CSS, and JavaScript. I plan on using the Canvas API, Webpack and the DOM to create the gameplay.
+I used DOM manipulation to grab the canvas HTML element. Everything displayed on the screen within the view of the game is painted onto the canvas with each frame.
 
 How to play:
 
-Use W to move forward
-Use S to slow down/reverse
-Use A to turn left
-Use D to turn right
+- Use W to move forward
+- Use S to slow down/reverse
+- Use A to turn left
+- Use D to turn right
 
 When you push any button on your keyboard, the game will start. Once you cross the finish line, your time will be recorded.
 
+Future features:
+
+- Fully functioning pause menu (with an unmute capability)
+- The ability to return to the main menu
+- General polishes to the game.
 
 Implementation Timeline:
 Friday Afternoon & Weekend:
