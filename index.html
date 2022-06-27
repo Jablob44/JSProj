@@ -10,27 +10,29 @@
     <script src="./dist/main.js"></script>
     <script src="./src/scripts/keymaster.js"></script>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-    <title>Bootleg F1</title>
+    <title>Mini Hill Climb!</title>
   </head>
 
   <body>
     <div id="Main-menu">
-      <!-- <img src="./assets/summersprescott1.jpeg" id="background-img"> -->
-      <h1 class="title">Mini Hill Climb</h1>
-      <button id="start-button">Start Game</button>
-      <h2>Links:</h2>
-      <div id="links">
-        <a href="https://www.linkedin.com/in/tuesday-ai/" id="linkedin"><img src="./assets/Linkedin_symbol_transparent.png" style="width: 40px;"></a>
-        <a href="https://github.com/Jablob44/JSProj" id="github"><img src="./assets/githublogo.png" style="width: 25px;"></a>
+      <div class="menu-items">
+        <h1 class="title">Mini Hill Climb</h1>
+        <button id="start-button">Start Game</button>
+        <h2>Links:</h2>
+        <div id="links">
+          <a href="https://www.linkedin.com/in/tuesday-ai/" id="linkedin"><img src="./assets/Linkedin_symbol_transparent.png" style="width: 40px;"></a>
+          <a href="https://github.com/Jablob44/JSProj" id="github"><img src="./assets/githublogo.png" style="width: 25px;"></a>
+        </div>
+        <h2>How to play:</h2>
+        <ul id="thehowto">
+          Use W to move forward.
+          Use S to slow down/reverse.
+          Use A to turn left.
+          Use D to turn right.
+          When you push any button on your keyboard, the game will start. Once you cross the finish line, your time will be recorded.</p>
+        </ul>
       </div>
-      <h2>How to play:</h2>
-      <ul id="thehowto">
-        Use W to move forward.
-        Use S to slow down/reverse.
-        Use A to turn left.
-        Use D to turn right.
-        When you push any button on your keyboard, the game will start. Once you cross the finish line, your time will be recorded.</p>
-      </ul>
+      <img src="./assets/summersprescott1.jpeg" id="background-img">
     </div>
     <div class="Selection-menu" style="display: none;">
       <ul> Car Color:
@@ -54,8 +56,8 @@
       <h1>Paused!</h1>
       <button class="quit-button">Quit</button>
       <button id="resume-button">Resume</button>
-      <button id="mute-button">Mute</button>
-      <button id="unmute-button" style="display: none;">Unmute</button>
+      <button id="mute-button">Mute/Unmute</button>
+      <!-- <button id="unmute-button" style="display: none;">Unmute</button> -->
       </div>
       <div id="game" style="display: none;">
         <div class="ordered-view" id="side-bar-left">

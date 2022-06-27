@@ -27,6 +27,7 @@ class GamePlay{
         this.context = this.canvas.getContext("2d");
         this.gameView = new GameView(this.car, this.game, this.track, this.context)
         this.gameView.start(this.lapOver);
+        this.isPaused = false;
 
     }
 
@@ -42,7 +43,6 @@ class GamePlay{
     }
     
     gp(){
-        this.timer(this.lapOver);
         // this.times = new set(times)
         // let currentTime = 0;
         this.car.pos = [this.canvas.width/2-25, this.canvas.height/2+200];
@@ -52,6 +52,11 @@ class GamePlay{
         this.track.pos = [153, -3488];
         this.track.carVel = this.car.getVel();
         this.track.vel = [this.track.carVel[0] * -1, this.track.carVel[1] * -1];
+        let pauseButton = document.getElementById("pause-button");
+        pauseButton.addEventListener('click', () => {
+            this.onPause(this.track, this.car);
+        })
+        this.timer(this.lapOver);
         // let newCar = new Car({
         //     pos: [canvas.width/2-25, canvas.height/2+200],
         //     vel: [0,0],
@@ -69,10 +74,6 @@ class GamePlay{
         
         // game.addCar(newCar);
         // newCar.draw(context);
-        let pauseButton = document.getElementById("pause-button");
-        pauseButton.addEventListener('click', () => {
-            this.onPause(this.track, this.car);
-        })
         
     }
     
@@ -85,32 +86,34 @@ class GamePlay{
             let ten = 0
             let min = 0;
             const timerInt = setInterval(() => {
-                let timer = document.getElementById("timer");
-                sec++;
-                // console.log(tens+sec);
-                if(sec === 10){
-                    sec = 0;
-                    tens++;
-                    ten = tens*10;
-                }
-                if(ten+sec >= 60){
-                    sec = 0;
-                    tens = 0;
-                    min++;
-                    ten = 0
-                }
-                timer.innerHTML=min+":"+tens+sec;
-                // console.log("current pos:", trackObj.getPos())
-                if (this.track.getPos()[1] >= 3857 && lapOver === false){
-                    lapOver = true;
-                    this.times.push(min+":"+tens+sec);
-                    // console.log("the current value representing the time!!!!!!!:", lastTime);
-                    this.updateBoard();
-
-                    clearInterval(timerInt);
-
-                    this.endOfLap(this.track, this.gameView);
-                    // return null;
+                if(this.isPaused === false){
+                    let timer = document.getElementById("timer");
+                    sec++;
+                    console.log("are we paused? ", this.isPaused);
+                    if(sec === 10){
+                        sec = 0;
+                        tens++;
+                        ten = tens*10;
+                    }
+                    if(ten+sec >= 60){
+                        sec = 0;
+                        tens = 0;
+                        min++;
+                        ten = 0
+                    }
+                    timer.innerHTML=min+":"+tens+sec;
+                    // console.log("current pos:", trackObj.getPos())
+                    if (this.track.getPos()[1] >= 3857 && lapOver === false){
+                        lapOver = true;
+                        this.times.push(min+":"+tens+sec);
+                        // console.log("the current value representing the time!!!!!!!:", lastTime);
+                        this.updateBoard();
+    
+                        clearInterval(timerInt);
+    
+                        this.endOfLap(this.track, this.gameView);
+                        // return null;
+                    }
                 }
             }, 1000);
         }, {once: true});
@@ -152,7 +155,8 @@ class GamePlay{
 
     onPause(track, car){
             let pauseMenu = document.getElementById("pause-menu");
-            let muted = false;
+            // let muted = false;
+            this.isPaused = true;
             pauseMenu.style.display = "block";
             let pausedVel = track.getVel();
             track.setFullVelocity([0,0]);
@@ -160,24 +164,28 @@ class GamePlay{
             let mute = document.getElementById("mute-button");
             let unmute = document.getElementById("unmute-button");
             resume.addEventListener('click', () => {
+                this.isPaused = false;
                 pauseMenu.style.display = "none";
                 track.setFullVelocity(pausedVel);
             });
-            if(!muted){
-                mute.addEventListener('click', () => {
-                    car.mute();
-                    mute.style.display = "none";
-                    unmute.style.display = "block";
-                    muted = true;
-                });
-            }else{
-                unmute.addEventListener('click', () => {
-                    car.unmute();
-                    mute.style.display = "block";
-                    unmute.style.display = "none";
-                    muted = false;
-                });
-            }
+            mute.addEventListener('click', () => {
+                car.mute();
+            });
+            // if(!muted){
+            //     mute.addEventListener('click', () => {
+            //         car.mute();
+            //         mute.style.display = "none";
+            //         unmute.style.display = "block";
+            //         muted = true;
+            //     });
+            // }else{
+            //     unmute.addEventListener('click', () => {
+            //         car.unmute();
+            //         mute.style.display = "block";
+            //         unmute.style.display = "none";
+            //         muted = false;
+            //     });
+            // }
 
 
 

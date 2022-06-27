@@ -20,16 +20,29 @@ class Car{
     }
 
     mute(){
-        this.acc.volume = 0;
-        this.dec.volume = 0;
-        this.idle.volume = 0;
+        if (this.acc.volume === 0 && this.dec.volume === 0 && this.idle.volume === 0){
+            this.acc.volume = 1;
+            this.dec.volume = 1;
+            this.idle.volume = 1;
+        }
+        else if(this.acc.volume === 0){
+            this.acc.volume = 1;
+        }
+        else if(this.dec.volume === 0){
+            this.dec.volume = 1;
+        }
+        else if(this.idle.volume === 0){
+            this.idle.volume = 1;
+        }
+        else{
+            this.accvolume = 0;
+            this.dec.volume = 0;
+            this.idle.volume = 0;
+        }
     }
 
-    unmute(){
-        this.accvolume = 1;
-        this.dec.volume = 1;
-        this.idle.volume = 1;
-    }
+    // unmute(){
+    // }
 
     playAcc(){
         this.acc.play();

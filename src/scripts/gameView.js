@@ -92,7 +92,7 @@ class GameView{
         this.track.setMap("test", this.ctx, theCar);
         
         let gamepl = setInterval(() => {
-            console.log(endOfLap);
+            // console.log(endOfLap);
             if (this.track.getVel()[1] > 15){
                 this.track.setVel(15);
             }
